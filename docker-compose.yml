@@ -1,0 +1,10 @@
+version: '3'
+services:
+  wog:
+    image: ye8323/worldofgames:latest
+    restart: always
+    build: .
+    ports:
+      - "8777:8777"
+    volumes:
+      - /c/Users/joele/PycharmProjects/\WorldOfGames/Scores.txt:/Scores.txt
