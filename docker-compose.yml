@@ -1,7 +1,7 @@
 version: '3'
 services:
   wog:
-    image: YoelEigner/worldofgames:latest
+    image: ye8323/worldofgames:latest
     restart: always
     build: .
     ports:
