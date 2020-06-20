@@ -1,3 +1,5 @@
+import sys
+
 from selenium.webdriver.firefox.options import Options
 from selenium import webdriver
 
@@ -22,10 +24,9 @@ def test_scores_service(url, element_to_find):
 
 
 def main_function():
-    if test_scores_service("http://localhost:5001/", "score") == True:
-        return 0
-    else:
-        return -1
+    test_score = test_scores_service()
 
+    if test_score != True:
+        print("your score table is out of range")
+        sys.exit(1)
 
-print(test_scores_service("http://localhost:5001/", "score"))
