@@ -1,36 +1,59 @@
-pipeline {
-    agent any
-    stages {
-        stage('pull') {
-            steps{
-            git 'https://github.com/YoelEigner/WorldOfGames.git'
-         }
-        }
-        stage('Build') {
-            steps{
-            echo 'Docker image build'
-            bat 'docker build -f ./Dockerfile . -t ye8323/worldofgames:latest'
-         }
-        }
-        stage('Run') {
-            steps{
-                echo 'Start docker container'
-                bat 'docker compose up -d'
-            }
-        }
-        stage('Test') {
-            steps{
-                echo 'Testing...'
-                bat (script: 'python e2e.py')
-            }
-        }
-        stage('Close and publish'){
-            steps {
-                echo 'Stop the container'
-                bat 'docker compose down'
-                bat 'docker push ye8323/worldofgames:latest'
-            }
-        }
-        }
-    }
+//Jenkinsfile (Declarative Pipeline)
 
+pipeline{
+    agent any
+    
+    stages
+    {
+        //get a repository from a github
+        stage("checkout a repo"){
+            steps{
+                echo "checkout a repo"
+                git 'https://github.com/YoelEigner/WorldOfGames'
+           }
+        }
+       
+       //build an image from the dockerfile
+        stage("build a container"){
+            steps{
+                echo "build a container"
+                bat "docker-compose build"
+
+            }
+        }
+        
+        //run a container and test the application
+        stage("run a container"){
+            steps{
+                echo "run a container"
+               
+                bat 'docker-compose up --detach'
+            }
+            
+        }
+        
+        //run test
+        stage("e2e test"){
+            steps{
+            //    echo 'Waiting 30 sec for container deployment '
+            //    sleep 30 // seconds
+                echo "e2e test"
+                bat 'docker exec worldofgames_world_of_games_1 bash -c \"python e2e.py\"'
+            }
+
+        }
+                
+         // stop the container
+        stage("finalize"){
+            steps{
+                echo "drop the container"
+                
+                bat "docker stop worldofgames_world_of_games_1"
+            }
+            
+            
+        }
+
+    }
+}
+© 2020 GitHub, Inc.
