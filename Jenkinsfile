@@ -35,8 +35,7 @@ pipeline{
         //run test
         stage("e2e test"){
             steps{
-            //    echo 'Waiting 30 sec for container deployment '
-            //    sleep 30 // seconds
+                sleep 30 // seconds
                 echo "e2e test"
                 bat 'docker exec worldofgames_world_of_games_1 bash -c \"python e2e.py\"'
             }
