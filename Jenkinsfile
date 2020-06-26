@@ -12,13 +12,6 @@ pipeline{
                 git 'https://github.com/YoelEigner/WorldOfGames'
            }
         }
-
-        stage("Initialize"){
-            steps{
-                        def dockerHome = tool 'myDocker'
-            env.PATH = "${dockerHome}/bin:${env.PATH}"
-            }
-         }
        
        //build an image from the dockerfile
         stage("build a container"){
