@@ -1,7 +1,7 @@
 //Jenkinsfile (Declarative Pipeline)
 
 pipeline{
-    agent { dockerfile true}
+    agent any
     
     stages
     {
@@ -17,7 +17,6 @@ pipeline{
         stage("build a container"){
             steps{
                 echo "build a container"
-                 cd "/usr/local/bin"
                 sh "docker-compose build"
 
             }
