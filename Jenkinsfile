@@ -2,7 +2,7 @@
 
 pipeline{
     environment {
-        PATH = "$PATH:/usr/local/bin"
+        PATH = "$PATH:/usr/bin"
     }
 
     agent { dockerfile true}
@@ -12,7 +12,6 @@ pipeline{
         //get a repository from a github
         stage("checkout a repo"){
             steps{
-                echo "PATH is:" %PATH%
                 echo "checkout a repo"
                 git 'https://github.com/YoelEigner/WorldOfGames'
            }
