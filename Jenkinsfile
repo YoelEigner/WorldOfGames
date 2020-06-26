@@ -47,7 +47,7 @@ pipeline{
             steps{
                 echo "drop the container"
                 
-                bat "docker stop worldofgames_world_of_games_1"
+                bat "docker stop worldofgames_world_of_games"
             }
             
             
