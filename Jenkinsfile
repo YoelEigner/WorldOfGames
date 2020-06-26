@@ -26,7 +26,7 @@ pipeline{
         stage("run a container"){
             steps{
                 echo "run a container"
-                cd /usr/local/bin
+                cd "/usr/local/bin"
                 sh 'docker-compose up --detach'
             }
             
