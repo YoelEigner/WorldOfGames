@@ -17,7 +17,7 @@ pipeline{
         stage("build a container"){
             steps{
                 echo "build a container"
-                bat "docker-compose build"
+                sh "docker-compose build"
 
             }
         }
@@ -27,7 +27,7 @@ pipeline{
             steps{
                 echo "run a container"
                
-                bat 'docker-compose up --detach'
+                sh 'docker-compose up --detach'
             }
             
         }
@@ -47,7 +47,7 @@ pipeline{
             steps{
                 echo "drop the container"
                 
-                bat "docker stop worldofgames_world_of_games"
+                sh "docker stop worldofgames_world_of_games"
             }
             
             
