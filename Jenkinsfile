@@ -1,10 +1,6 @@
 //Jenkinsfile (Declarative Pipeline)
 
 pipeline{
-    environment {
-        PATH = "$PATH:/usr/bin"
-    }
-
     agent { dockerfile true}
     
     stages
@@ -21,7 +17,7 @@ pipeline{
         stage("build a container"){
             steps{
                 echo "build a container"
-                docker-compose build
+                sh "docker-compose build"
 
             }
         }
