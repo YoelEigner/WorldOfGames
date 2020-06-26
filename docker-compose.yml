@@ -7,4 +7,4 @@ services:
     ports:
       - "8777:8777"
     volumes:
-      - /c/Users/joele/PycharmProjects/\WorldOfGames/Scores.txt:/Scores.txt
+      - ./WorldOfGames/Scores.txt:/Scores.txt
