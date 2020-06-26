@@ -1,7 +1,7 @@
 //Jenkinsfile (Declarative Pipeline)
 
 pipeline{
-    agent any
+    agent { dockerfile true }
     
     stages
     {
@@ -37,7 +37,7 @@ pipeline{
             steps{
                 //sleep 30 // seconds
                 echo "e2e test"
-                sh 'docker exec worldofgames_world_of_games_1 bash -c \"python e2e.py\"'
+                sh 'docker exec worldofgames_world_of_games bash -c \"python e2e.py\"'
             }
 
         }
