@@ -17,7 +17,7 @@ pipeline{
         stage("build a container"){
             steps{
                 echo "build a container"
-                docker build -f ./Dockerfile . -t y8323/worldofgames:latest
+                docker build -f ./Dockerfile .
 
             }
         }
