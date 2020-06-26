@@ -1,10 +1,11 @@
 //Jenkinsfile (Declarative Pipeline)
 
 pipeline{
-    agent { dockerfile true }
-        environment {
+    environment {
         PATH = "$PATH:/usr/local/bin"
     }
+
+    agent any
     
     stages
     {
