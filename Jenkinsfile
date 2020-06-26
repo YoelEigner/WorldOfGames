@@ -26,7 +26,7 @@ pipeline{
         stage("run a container"){
             steps{
                 echo "run a container"
-               
+               sh 'apt-get install docker-compose'
                 sh 'docker-compose up --detach'
             }
             
