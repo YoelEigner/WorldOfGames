@@ -30,8 +30,7 @@ pipeline{
         //run test
         stage("e2e test"){
             steps{
-                sh 'ls'
-                sh 'sudo docker exec worldofgames_world_of_games bash -c \"python ./e2e.py\"'
+                sh 'sudo docker exec worldofgames_world_of_games bash -c python e2e.py'
             }
 
         }
