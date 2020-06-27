@@ -7,7 +7,7 @@ pipeline{
         stage("checkout a repo"){
             steps{
                 echo "checkout a repo"
-                git clone 'https://github.com/YoelEigner/WorldOfGames'
+                git 'https://github.com/YoelEigner/WorldOfGames'
            }
         }
        
