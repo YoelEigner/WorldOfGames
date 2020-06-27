@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    def customImage = docker.build(./Dockerfile )
+
     stages
     {
         //get a repository from a github
@@ -11,19 +11,18 @@ pipeline{
            }
         }
 
+       //build an image from the dockerfile
         stage("build a container"){
+            steps{
+                sh 'ls'
+                sh 'docker build -f ./Dockerfile .'
 
-
-          customImage.inside {
-            sh 'make test'
             }
         }
-
 
                 //run a container and test the application
         stage("run a container"){
             steps{
-                echo "run a container"
                 sh 'docker-compose up --detach'
             }
 
