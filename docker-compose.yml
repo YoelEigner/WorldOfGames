@@ -4,6 +4,7 @@ services:
     image: ye8323/worldofgames:latest
     restart: always
     build: .
+    container_name: worldofgames_world_of_games
     ports:
       - "8777:8777"
     volumes:
