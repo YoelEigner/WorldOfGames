@@ -31,8 +31,6 @@ pipeline{
         //run test
         stage("e2e test"){
             steps{
-                //sleep 30 // seconds
-                echo "e2e test"
                 sh 'docker exec worldofgames_world_of_games bash -c \"python e2e.py\"'
             }
 
@@ -41,7 +39,6 @@ pipeline{
          // stop the container
         stage("finalize"){
             steps{
-                echo "drop the container"
 
                 sh "docker stop worldofgames_world_of_games"
             }
