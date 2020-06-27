@@ -29,4 +29,7 @@ def main_function():
     if test_score != True:
         print("your score table is out of range")
         sys.exit(1)
+        
+        
 
+main_function()
