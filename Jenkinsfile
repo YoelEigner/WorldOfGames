@@ -14,7 +14,7 @@ pipeline{
        //build an image from the dockerfile
         stage("build a container"){
             steps{
-                sh 'sudo su - docker build -f ./Dockerfile .'
+                sh 'sudo docker build -f ./Dockerfile .'
 
             }
         }
@@ -22,7 +22,7 @@ pipeline{
                 //run a container and test the application
         stage("run a container"){
             steps{
-                sh 'sudo su - docker-compose up --detach'
+                sh 'sudo docker-compose up --detach'
             }
 
         }
@@ -30,7 +30,7 @@ pipeline{
         //run test
         stage("e2e test"){
             steps{
-                sh 'sudo su - docker exec worldofgames_world_of_games bash -c \"python e2e.py\"'
+                sh 'sudo docker exec worldofgames_world_of_games bash -c \"python e2e.py\"'
             }
 
         }
@@ -39,7 +39,7 @@ pipeline{
         stage("finalize"){
             steps{
 
-                sh "sudo su - docker stop worldofgames_world_of_games"
+                sh "sudo docker stop worldofgames_world_of_games"
             }
 
 
