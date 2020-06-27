@@ -10,15 +10,14 @@ pipeline{
                 git 'https://github.com/YoelEigner/WorldOfGames'
            }
         }
-       
-       //build an image from the dockerfile
-        stage("build a container"){
-            steps{
-                sh 'ls'
-                docker.build -f ./Dockerfile .
+       def customImage = docker.build(./Dockerfile )
 
+        stage("build a container"){
+          customImage.inside {
+            sh 'make test'
             }
         }
+
 
                 //run a container and test the application
         stage("run a container"){
