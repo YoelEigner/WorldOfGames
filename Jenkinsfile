@@ -15,7 +15,7 @@ pipeline{
         stage("build a container"){
             steps{
                 sh 'ls'
-                sh 'docker build -u root -f ./Dockerfile .'
+                docker.build -f ./Dockerfile .
 
             }
         }
