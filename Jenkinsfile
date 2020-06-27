@@ -16,8 +16,7 @@ pipeline{
        //build an image from the dockerfile
         stage("build a container"){
             steps{
-                echo "build a container"
-                sh "sudo docker build -f /WorldOfGames/Dockerfile .  "
+                app = docker.build -f ./Dockerfile .
 
             }
         }
