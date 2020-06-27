@@ -15,7 +15,6 @@ pipeline{
         stage("build a container"){
             steps{
                 sh 'ls'
-                sh 'cd /WorldOfGames/'
                 sh 'docker.build -f ./Dockerfile .'
 
             }
