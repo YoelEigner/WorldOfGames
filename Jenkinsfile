@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    
+    def customImage = docker.build(./Dockerfile )
     stages
     {
         //get a repository from a github
@@ -10,9 +10,10 @@ pipeline{
                 git 'https://github.com/YoelEigner/WorldOfGames'
            }
         }
-       def customImage = docker.build(./Dockerfile )
 
         stage("build a container"){
+
+
           customImage.inside {
             sh 'make test'
             }
